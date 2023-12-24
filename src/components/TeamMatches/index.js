@@ -1,7 +1,9 @@
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+// import PieChart from '../PieChart'
 import './index.css'
 
 class TeamMatches extends Component {
@@ -69,9 +71,17 @@ class TeamMatches extends Component {
 
     return (
       <div className="responsive-container">
+        <div className="back-btn-container">
+          <Link to="/">
+            <button type="button" className="back-btn">
+              Back
+            </button>
+          </Link>
+        </div>
         <img src={teamBannerURL} alt="team banner" className="team-banner" />
         <LatestMatch details={latestMatch} />
         {this.renderRecentMatchesList()}
+        {/* <PieChart details={teamData} /> */}
       </div>
     )
   }
